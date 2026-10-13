@@ -21,11 +21,19 @@ Python 3 and GTK 3, so it fits XFCE. It does not use or require systemd, Package
 
 ## Install
 
-Download the `.deb` and install it with apt, which pulls in the dependencies:
+Download the `.deb` from the project's
+[Releases page](https://github.com/bdmfab/LCOS-Software-Center/releases) (or from a terminal, below) and
+install it with apt, which pulls in the dependencies:
 
 ```
-sudo apt install ./lcos-software-center_<version>_all.deb
+wget https://github.com/bdmfab/LCOS-Software-Center/releases/download/v0.4.0/lcos-software-center_0.4.0_all.deb
+sudo apt install ./lcos-software-center_0.4.0_all.deb
 ```
+
+Use the file from the Releases page, or GitHub's **Download raw file** button. Don't use "Save link as"
+on the file's normal GitHub page: that saves a web page under the `.deb` name and apt will fail with
+"Invalid archive signature" (see Troubleshooting). Change the version number in the commands to match
+the release you want.
 
 The app appears in the menu under System, or run `lcos-software-center`. Remove it with
 `sudo apt remove lcos-software-center`. If you ever used `sudo make install`, run
@@ -136,6 +144,11 @@ store warns and asks before you install a Flatpak. See Troubleshooting.
 tags, categories are decent; without, the store falls back to the noisier library-dependency guess.
 
 ## Troubleshooting
+
+**apt says "Invalid archive signature" or "could not locate member control.tar".** The downloaded file
+isn't a real `.deb`, usually a saved web page or a cut-off download. Check it: it should start with
+`!<arch>` (`head -c 8 file.deb`), and its `sha256sum` should match the one listed on the release page.
+Delete it and download again from the Releases page or with `wget` as shown above.
 
 **A Flatpak app isn't in the XFCE menu.** The detail page's **Open** button works regardless. For
 the menu entry, Flatpak's launcher folders must be in `XDG_DATA_DIRS`, which is set at login, so log
