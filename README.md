@@ -6,7 +6,7 @@ for both **APT** (the Devuan repositories) and **Flatpak** (Flathub).
 
 Python 3 and GTK 3, so it fits XFCE. It does not use or require systemd, PackageKit or aptdaemon.
 
-![The main window: category sidebar, search box, and a list of APT and Flatpak apps](docs/screenshots/main-window.png)
+![The main window: category sidebar, search box, and a list of APT and Flatpak apps](LCOS Software.png)
 
 ## Features
 
